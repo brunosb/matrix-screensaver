@@ -1,5 +1,3 @@
-const { ipcRenderer } = require('electron');
-
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
@@ -8,10 +6,6 @@ const fadeInterval = 1.6;
 const symbolSize = 14;
 const FPS = 30;
 let frameCount = 0;
-
-const sendQuit = () => {
-  ipcRenderer.send('sendQuit');
-}
 
 function App() {
 
@@ -58,7 +52,7 @@ function App() {
   function Stream() {
     this.symbols = [];
     this.totalSymbols = Math.round(random(5, 35));
-    this.speed = random(5, 20);
+    this.speed = random(5, 15);
   
     this.generateSymbols = function(x, y) {
       let opacity = 255;
@@ -82,20 +76,6 @@ function App() {
   }
   
   function setup() {
-    document.addEventListener('keydown', sendQuit);
-    document.addEventListener('mousedown', sendQuit);
-
-    // Also quit on mouse movement, but delay mousemove tracking, otherwise we'll close immediately
-    setTimeout( function() {
-      let treshold = 5;
-      document.addEventListener('mousemove', function(e) {
-          if (treshold * treshold < e.movementX * e.movementX
-              + e.movementY * e.movementY) {
-                  sendQuit();
-              }
-      });
-    }, 3000);
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   

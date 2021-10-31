@@ -1,4 +1,4 @@
-const { BrowserWindow, screen } = require('electron')
+const { BrowserWindow, screen, app } = require('electron')
 const path = require('path')
 
 function createWindow () {
@@ -11,6 +11,7 @@ function createWindow () {
       y: display.bounds.y,
       fullscreen: true,
       resizable: true,
+      closable: true,
       webPreferences: {
         preload: path.join(__dirname, '../', '../', 'preload.js'),
         nodeIntegration: true,
@@ -25,12 +26,14 @@ function createWindow () {
     win.setVisibleOnAllWorkspaces(true)
     win.maximize()
     win.setMenu(null)
-  
-    win.on('closed', function() {
-      // Dereference the window object, usually you would store windows
-      // in an array if your app supports multi windows, this is the time
-      // when you should delete the corresponding element.
-      win = null;
+
+    win.on('close', (event) => {
+      if(app.quitting) {
+        win = null;
+      } else {
+        event.preventDefault();
+        win.hide();
+      }
     });
   
     browsers.push(win);

@@ -19,5 +19,23 @@
   },
   "build": {
     "appId": "barbosa.developer.matrix.screensaver"
+  },
+  "iohook": {
+    "targets": [
+      "node-83",
+      "electron-87"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  },
+  "dependencies": {
+    "iohook": "^0.9.3"
   }
 }
