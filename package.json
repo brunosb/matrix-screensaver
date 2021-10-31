@@ -1,0 +1,20 @@
+{
+  "name": "matrix-screensaver",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "author": {
+    "name": "Bruno Silva Barbosa",
+    "email": "barbosa.developer@gmail.com",
+    "url": "https://github.com/brunosb"
+  },
+  "description": "Application screensaver matrix effect",
+  "scripts": {
+    "dev": "electron .",
+    "dist": "electron-packager ."
+  },
+  "devDependencies": {
+    "electron": "^12.0.2",
+    "electron-packager": "^15.4.0"
+  }
+}
