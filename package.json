@@ -11,7 +11,7 @@
   "description": "Application screensaver matrix effect",
   "scripts": {
     "dev": "electron .",
-    "dist": "electron-builder --win portable"
+    "dist": "electron-builder"
   },
   "devDependencies": {
     "electron": "^12.0.2",
