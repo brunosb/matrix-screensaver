@@ -1,10 +1,11 @@
-const { app, ipcMain } = require('electron');
+const { app, ipcMain, Menu } = require('electron');
 const ioHook = require('iohook');
 const Timer = require('./Timer');
 
 let browsers = [];
 let counter;
 const minutesCounter = 10;
+let activeProgram = true;
 
 function CountDownToShowBrowsers() {
   showBrowsers();
@@ -12,7 +13,30 @@ function CountDownToShowBrowsers() {
 
 function App() {
   browsers = require('./electron/CreateWindow.js');
-  require('./electron/Tray.js');
+  const Tray = require('./electron/Tray.js');
+
+  Tray.setContextMenu(Menu.buildFromTemplate([
+    {
+      label: 'Ligado',
+      type: 'checkbox',
+      checked: activeProgram, 
+      click: () => {
+        activeProgram = !activeProgram;
+      }
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Sair',
+      click: () => {
+        app.quit();
+      }
+    }
+  ]));
+  Tray.setToolTip('Matrix ScreenSaver - Bruno Barbosa');
+  Tray.setIgnoreDoubleClickEvents(true);
+
   counter = new Timer(CountDownToShowBrowsers, 60 * 1000 * minutesCounter);
   counter.start();
 }
@@ -35,20 +59,27 @@ app.on('window-all-closed', () => {
 });
 
 app.on('before-quit', () => {
+  ioHook.removeAllListeners();
+  ioHook.unload();
+  ioHook.stop();
   app.quitting = true;
 })
 
 function showBrowsers() {
-  browsers.forEach(browser => {
-    if(!browser.isVisible()) {
-      browser.show();
-    }
-  });
+  if (activeProgram) {   
+    browsers.forEach(browser => {
+      if(!browser.isVisible()) {
+        browser.show();
+      }
+    });
+  }
 }
 
 function hideBrowsers() {
     browsers.forEach(browser => {
-      browser.hide();
+      if(browser) {
+        browser.hide();
+      }
     });
     counter.reset();
 }
