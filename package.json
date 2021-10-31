@@ -11,10 +11,13 @@
   "description": "Application screensaver matrix effect",
   "scripts": {
     "dev": "electron .",
-    "dist": "electron-packager ."
+    "dist": "electron-builder --win portable"
   },
   "devDependencies": {
     "electron": "^12.0.2",
-    "electron-packager": "^15.4.0"
+    "electron-builder": "^22.13.1"
+  },
+  "build": {
+    "appId": "barbosa.developer.matrix.screensaver"
   }
 }
