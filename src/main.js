@@ -34,11 +34,11 @@ function App() {
       }
     }
   ]));
-  // tray.on('click', () => {
-  //   if(activeProgram) {
-  //     showBrowsers();
-  //   }
-  // });
+  tray.on('click', () => {
+    if(activeProgram) {
+      showBrowsers();
+    }
+  });
 
   counter = new Timer(CountDownToShowBrowsers, 60 * 1000 * minutesCounter);
   counter.start();
