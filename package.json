@@ -18,7 +18,8 @@
     "electron-builder": "^22.13.1"
   },
   "build": {
-    "appId": "barbosa.developer.matrix.screensaver"
+    "appId": "barbosa.developer.matrix.screensaver",
+    "icon": "assets/matrix-icon"
   },
   "iohook": {
     "targets": [
