@@ -7,10 +7,6 @@ let counter;
 const minutesCounter = 10;
 let activeProgram = true;
 
-function CountDownToShowBrowsers() {
-  showBrowsers();
-}
-
 function App() {
   const tray = require('./electron/Tray.js');
   browsers = require('./electron/CreateWindow.js');
@@ -40,7 +36,7 @@ function App() {
     }
   });
 
-  counter = new Timer(CountDownToShowBrowsers, 60 * 1000 * minutesCounter);
+  counter = new Timer(showBrowsers, 60 * 1000 * minutesCounter);
   counter.start();
 }
 
