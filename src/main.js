@@ -12,10 +12,10 @@ function CountDownToShowBrowsers() {
 }
 
 function App() {
+  const tray = require('./electron/Tray.js');
   browsers = require('./electron/CreateWindow.js');
-  const Tray = require('./electron/Tray.js');
 
-  Tray.setContextMenu(Menu.buildFromTemplate([
+  tray.setContextMenu(Menu.buildFromTemplate([
     {
       label: 'Ligado',
       type: 'checkbox',
@@ -34,8 +34,11 @@ function App() {
       }
     }
   ]));
-  Tray.setToolTip('Matrix ScreenSaver - Bruno Barbosa');
-  Tray.setIgnoreDoubleClickEvents(true);
+  tray.on('click', () => {
+    if(activeProgram) {
+      showBrowsers();
+    }
+  });
 
   counter = new Timer(CountDownToShowBrowsers, 60 * 1000 * minutesCounter);
   counter.start();
@@ -77,7 +80,7 @@ function showBrowsers() {
 
 function hideBrowsers() {
     browsers.forEach(browser => {
-      if(browser) {
+      if(browser.isVisible()) {
         browser.hide();
       }
     });

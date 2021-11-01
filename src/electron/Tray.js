@@ -5,7 +5,7 @@ const iconPath = resolve(__dirname, '../', '../', 'assets', 'matrix-icon.ico')
 
 function createTray() {
   const tray = new Tray(iconPath)
-  tray.setToolTip('Matrix')
+  tray.setToolTip('Matrix ScreenSaver - github.com/brunosb')
   return tray
 }
 
