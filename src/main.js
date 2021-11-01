@@ -34,11 +34,11 @@ function App() {
       }
     }
   ]));
-  tray.on('click', () => {
-    if(activeProgram) {
-      showBrowsers();
-    }
-  });
+  // tray.on('click', () => {
+  //   if(activeProgram) {
+  //     showBrowsers();
+  //   }
+  // });
 
   counter = new Timer(CountDownToShowBrowsers, 60 * 1000 * minutesCounter);
   counter.start();
@@ -96,7 +96,9 @@ function registerIoHookEvents() {
   });
 
   ioHook.on('mouseclick', (event) => {
-    hideBrowsers();
+    if(event.button === 1) {
+      hideBrowsers();
+    }
   });
 
   ioHook.on('mousewheel', (event) => {
