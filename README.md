@@ -4,6 +4,10 @@
 
 Aplicação desenvolvida em ElectronJs imitando o comportamento da screensaver do SO com efeito Matrix
 
+<div align="center">
+	<img src="https://cdn.discordapp.com/attachments/904884390407065660/904886112953188363/matrix-screensave.gif" />
+</div>
+
 ### Instalação
 
 ```
