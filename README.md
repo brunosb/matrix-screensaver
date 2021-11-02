@@ -32,11 +32,12 @@ A screensaver irá aparecer após 10 min de inatividade do mouse ou teclado.
 - [x] Fullscreen em múltiplos monitores
 - [x] Screensaver desaparece aos seguintes inputs:
   - [x] Movimento do mouse
-  - [x] Click esquerdo do mouse
+  - [x] Clique esquerdo do mouse
   - [x] Tecla pressionada
+- [x] Clique direito do mouse no icone da barra de tarefas abre o menu 
 - [x] Menu na barra de tarefas com as seguintes opções:
   - [x] checkbox Ligado/Desligado _(Ativa e desativa manualmente a aparição da screensaver)_
   - [x] Sair _(Encerra o aplicativo)_
-  - [x] Click direito do mouse abre instantaneamente a screensaver
+  - [x] Clique esquerdo do mouse sob o icone abre instantaneamente a screensaver
   - [ ] Ajuste do tempo de inatividade
   - [ ] Opção de iniciar junto ao logon
