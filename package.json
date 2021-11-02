@@ -19,7 +19,7 @@
   },
   "build": {
     "appId": "barbosa.developer.matrix.screensaver",
-    "icon": "assets/matrix-icon"
+    "icon": "assets/matrix-icon-application"
   },
   "iohook": {
     "targets": [

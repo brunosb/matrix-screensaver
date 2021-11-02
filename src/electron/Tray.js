@@ -1,7 +1,7 @@
 const { Tray } = require('electron')
 const { resolve } = require('path')
 
-const iconPath = resolve(__dirname, '../', '../', 'assets', 'matrix-icon.ico')
+const iconPath = resolve(__dirname, '../', '../', 'assets', 'matrix-icon-tray.ico')
 
 function createTray() {
   const tray = new Tray(iconPath)
