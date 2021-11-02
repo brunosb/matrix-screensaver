@@ -21,6 +21,7 @@ yarn dist
 ```
 
 Será criada uma pasta "dist" contendo o instalador após a execução.
+Exemplo: no caso do Windows "matrix-screensaver Setup x.x.x.exe"
 
 ### Funcionalidades
 
