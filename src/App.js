@@ -3,8 +3,8 @@ let ctx = canvas.getContext('2d');
 
 let streams = [];
 const fadeInterval = 1.6;
-const symbolSize = 14;
-const FPS = 30;
+const symbolSize = 20;
+const FPS = 23;
 let frameCount = 0;
 
 function App() {
@@ -66,8 +66,8 @@ function App() {
     }
   
     this.render = function() {
-      this.symbols.forEach(symbol => {
-        ctx.fillStyle = `rgba(0, 255, 70, ${symbol.opacity})`;
+      this.symbols.forEach((symbol, index) => {
+        ctx.fillStyle = index !== 0 ? `rgba(0, 255, 70, ${symbol.opacity})`: `rgba(255, 255, 255, ${symbol.opacity})`;
         ctx.fillText(symbol.value, symbol.x, symbol.y);
         symbol.rain();
         symbol.setToRandomSymbol();
