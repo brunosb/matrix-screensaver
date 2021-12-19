@@ -4,7 +4,7 @@ const Timer = require('./Timer');
 
 let browsers = [];
 let counter;
-const minutesCounter = 10;
+let minutesCounter = 10;
 let activeProgram = true;
 
 function App() {
@@ -19,6 +19,43 @@ function App() {
       click: () => {
         activeProgram = !activeProgram;
       }
+    },
+    {
+      label: 'Intervalo',
+      submenu: [
+        {
+          label: '5 minutos',
+          type: 'radio',
+          checked: minutesCounter === 5,
+          click: () => {
+            minutesCounter = 5;
+          }
+        },
+        {
+          label: '10 minutos',
+          type: 'radio',
+          checked: minutesCounter === 10,
+          click: () => {
+            minutesCounter = 10;
+          }
+        },
+        {
+          label: '30 minutos',
+          type: 'radio',
+          checked: minutesCounter === 30,
+          click: () => {
+            minutesCounter = 30;
+          }
+        },
+        {
+          label: '1 hora',
+          type: 'radio',
+          checked: minutesCounter === 60,
+          click: () => {
+            minutesCounter = 60;
+          }
+        }
+      ]
     },
     {
       type: 'separator'
